@@ -1,0 +1,22 @@
+<h1>Articles#index</h1>
+<p>Find me in app/views/articles/index.html.erb</p>
+
+
+<% @articles.each do |article| %>
+<div class="container">
+	<h1>
+		<%= article.title %>
+		<%= link_to edit_article_path(article) do %>
+			<i class="fa fa-pencil"></i> 
+		<% end %>
+		
+		<%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+			<i class="fa fa-trash-o"></i>
+		<% end %>
+	</h1>
+	<p> <%= article.content %> </p>
+	</div>
+<% end %>
+
+<br>
+<%= link_to "new article", articles_new_path %>
